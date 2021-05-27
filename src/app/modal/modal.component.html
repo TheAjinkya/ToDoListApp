@@ -1,0 +1,49 @@
+
+
+  <div data-toggle="modal" data-target="#myModal" (click)="showModal()" class="card card-small button-primary">
+   Add Item
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Item</h4>
+          <button type="button" class="close" (click)="hideModal()">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <input type="text" class="form-control" [(ngModel)]="labelName"  name="labelName" placeholder="Enter Item name">
+                    </div>
+                      <div class="form-group">
+                    <select class="form-control" (change)="onSelect($event)">
+                        <option disabled selected hidden>Select a List</option>
+                        <option *ngFor="let list of lists" value= {{list.label}}>
+                          {{list.label}}
+                        </option>
+                      </select>  
+                      </div>
+                </div>
+                </div>
+              </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="sendModal()" >Save</button>
+          <button type="button" class="btn btn-danger" (click)="hideModal()">Close</button>
+  
+          <!-- this button is hidden, used to close from typescript -->
+          <button type="button" id="close-modal" data-dismiss="modal" style="display: none">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

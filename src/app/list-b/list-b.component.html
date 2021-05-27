@@ -1,0 +1,14 @@
+<h2 style="text-align: center;">List B</h2>
+
+<div *ngIf="listBItems.length > 0; else emptyList">
+    <div *ngFor="let list of listBItems; let index = index"
+     class="card card-small" (click)="getBId(list)" [ngClass]="getCustomBCss(list)">
+         {{list.label}}
+    </div>
+    </div>
+
+<ng-template #emptyList>
+   <div class="card card-small empty">
+       Empty List!
+   </div> 
+</ng-template>

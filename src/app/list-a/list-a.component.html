@@ -1,0 +1,16 @@
+
+<h2 style="text-align: center;">List A</h2>
+
+<div *ngIf="listAItems.length > 0; else emptyList">
+<div *ngFor="let list of listAItems; let index = index"
+ class="card card-small" (click)="getId(list)" [ngClass]="getCustomCss(list)">
+     {{list.label}}
+</div>
+</div>
+
+
+<ng-template #emptyList>
+    <div class="card card-small empty">
+        Empty List!
+    </div>
+</ng-template>
